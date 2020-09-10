@@ -1,0 +1,1 @@
+﻿# Variables that should be reset on configuration reload
