@@ -33,5 +33,6 @@
 	{
 		Invoke-PSFCallback -PSCmdlet $PSCmdlet -EnableException $EnableException
 		& "$script:ModuleRoot\internal\scripts\variables.ps1"
+		Clear-StringMapping
 	}
 }
