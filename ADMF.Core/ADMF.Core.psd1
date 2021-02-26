@@ -3,7 +3,7 @@
 	RootModule = 'ADMF.Core.psm1'
 	
 	# Version number of this module.
-	ModuleVersion = '1.0.0'
+	ModuleVersion = '1.1.3'
 	
 	# ID used to uniquely identify this module
 	GUID = '11e2d894-33d7-4020-a65e-f13c2f1893aa'
@@ -41,6 +41,8 @@
 	# Functions to export from this module
 	FunctionsToExport = @(
 		'Clear-AdcConfiguration'
+		'Get-AdcExchangeVersion'
+		'Sync-AdcObject'
 	)
 	
 	# Cmdlets to export from this module
