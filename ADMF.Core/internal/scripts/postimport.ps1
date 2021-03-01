@@ -25,5 +25,8 @@ $moduleRoot = Split-Path (Split-Path $PSScriptRoot)
 # Load Variables
 "$moduleRoot\internal\scripts\variables.ps1"
 
+# Load Exchange Data
+"$moduleRoot\internal\scripts\exchange.ps1"
+
 # Load License
 "$moduleRoot\internal\scripts\license.ps1"

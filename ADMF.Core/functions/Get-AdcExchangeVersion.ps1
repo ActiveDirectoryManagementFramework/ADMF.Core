@@ -28,9 +28,23 @@
 		$Name = '*'
 	)
 	
+	begin {
+		$selectAliases = @(
+			'SchemaVersion as RangeUpper'
+			'ConfigurationVersion as ObjectVersionConfig'
+			'DomainVersion as ObjectVersionDomain'
+		)
+	}
 	process
 	{
-		if ($Binding) { return $script:exchangeVersionMapping[$Binding] }
-		$script:exchangeVersionMapping.Values | Where-Object Name -Like $Name
+		if ($Binding) { return $script:exchangeVersionMapping[$Binding] | Select-PSFObject -KeepInputObject -Alias $selectAliases -TypeName 'ADMF.Core.ExchangeVersion' }
+		$script:exchangeVersionMapping.Values | Where-Object Name -Like $Name | Sort-Object @(
+			{ $_.Name -replace '^Exchange (\d+).+$','$1'}
+			'SchemaVersion'
+			'ConfigurationVersion'
+			'DomainVersion'
+			{ $_.Name -replace '^.+?(\d+)$','$1' -as [int] }
+			'Name'
+		) | Select-PSFObject -KeepInputObject -Alias $selectAliases -TypeName 'ADMF.Core.ExchangeVersion'
 	}
 }

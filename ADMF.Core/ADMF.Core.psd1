@@ -36,7 +36,7 @@
 	# TypesToProcess = @('xml\ADMF.Core.Types.ps1xml')
 	
 	# Format files (.ps1xml) to be loaded when importing this module
-	# FormatsToProcess = @('xml\ADMF.Core.Format.ps1xml')
+	FormatsToProcess = @('xml\ADMF.Core.Format.ps1xml')
 	
 	# Functions to export from this module
 	FunctionsToExport = @(

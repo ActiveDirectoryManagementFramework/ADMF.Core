@@ -7,7 +7,7 @@
 	.DESCRIPTION
 		Replicate a single item between DCs.
 		Can use either WinRM or LDAP to trigger a bulk sync of a single object in parallel.
-	
+		
 		Use this command to ensure a specific object in AD has been replicated across all targeted DCs.
 	
 	.PARAMETER Object
@@ -27,9 +27,13 @@
 		Which protocl should be used to trigger the replication.
 		Can use either LDAP or WinRM, defaults to LDAP.
 	
+	.PARAMETER Reverse
+		Reverses the replication order in an LDAP-based replication task.
+		In this case, rather than fanning out network connections, the source server is ordered to replicate with each specified target server.
+	
 	.EXAMPLE
 		PS C:\> Sync-AdcObject -Object $userAccount -Source $pdc -Target (Get-ADComputer -LdapFilter "(&(primaryGroupID=516)(!(name=$pdc)))").DNSHostName
-	
+		
 		Replicates the AD object stored in $userAccount across all domain controllers in the current domain.
 #>
 	[CmdletBinding()]
@@ -51,7 +55,10 @@
 		
 		[ValidateSet('LDAP','WinRM')]
 		[string]
-		$Type = 'LDAP'
+		$Type = 'LDAP',
+		
+		[switch]
+		$Reverse
 	)
 	
 	begin
@@ -65,7 +72,7 @@
 			'LDAP'
 			{
 				$adObject = Get-ADObject @credParam -Identity $Object -Server $Source -Properties ObjectGUID
-				Sync-LdapObjectParallel @credParam -Object $adObject.ObjectGUID -Server $Target -Target $Source
+				Sync-LdapObjectParallel @credParam -Object $adObject.ObjectGUID -Server $Target -Target $Source -Reverse:$Reverse
 			}
 			#endregion LDAP-triggered replication
 			#region WinRM-triggered replication
@@ -91,10 +98,11 @@
 				} -ArgumentList $Source, $Object -ErrorVariable errorVar -ErrorAction SilentlyContinue | Select-PSFObject -KeepInputObject -TypeName 'ADMF.Core.SyncResult'
 				
 				foreach ($errorObject in $errorVar) {
+					if ($errorObject.InvocationInfo.InvocationName -ne 'Invoke-PSFCommand') { continue }
 					Write-PSFMessage -Level Warning -String 'Sync-AdcObject.ConnectError' -StringValues $errorObject.TargetObject -ErrorRecord $errorObject
 					[PSCustomObject]@{
 						PSTypeName   = 'ADMF.Core.SyncResult'
-						ComputerName = $errorObject.TargetObject
+						ComputerName = $errorObject.TargetObject.ConnectionInfo.ComputerName
 						Success	     = $false
 						Message	     = $errorObject.Exception.Message
 						ExitCode	 = 1
@@ -107,10 +115,11 @@
 		
 		[PSCustomObject]@{
 			Success = $results.Success -notcontains $false
-			SuccessPercent = $results.Where{ $_.Success }.Count / $Target.Count * 100
+			SuccessPercent = @($results).Where{ $_.Success }.Count / $Target.Count * 100
 			Results = $results
-			ServerSuccess = $results.Where{ $_.Success }.ComputerName
-			ServerFailed = $results.Where{ -not $_.Success }.ComputerName
+			ServerSuccess = @($results).Where{ $_.Success }.ComputerName
+			ServerFailed = @($results).Where{ -not $_.Success }.ComputerName
+			SuccessCount = ($results | Where-Object Success | Measure-Object).Count
 		}
 	}
 }
