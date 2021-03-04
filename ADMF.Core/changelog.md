@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## ???
+## 1.1.3 (2021-03-04)
 
 - New: Command Sync-AdcObject - Replicate a single item between DCs.
 - New: Command Get-AdcExchangeVersion - Get a list of exchange versions and the various identifiers to see which has been deployed.
