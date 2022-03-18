@@ -51,10 +51,7 @@
 		$Target,
 		
 		[PSCredential]
-		$Credential,
-		
-		[switch]
-		$Configuration
+		$Credential
 	)
 	
 	begin {

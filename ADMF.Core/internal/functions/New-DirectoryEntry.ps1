@@ -27,6 +27,7 @@
             The connection is established to just that server using the specified credentials.
     #>
 	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
+	[OutputType([System.DirectoryServices.DirectoryEntry])]
 	[CmdletBinding()]
 	param (
 		[string]
