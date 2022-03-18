@@ -55,4 +55,7 @@ $script:exchangeVersionMapping = @{
 	'2019CU6' = [PSCustomObject]@{ Name = 'Exchange 2019 CU6'; DomainVersion = 13237; ConfigurationVersion = 16754; SchemaVersion = 17001; Binding = '2019CU6' }
 	'2019CU7' = [PSCustomObject]@{ Name = 'Exchange 2019 CU7'; DomainVersion = 13238; ConfigurationVersion = 16755; SchemaVersion = 17001; Binding = '2019CU7' }
 	'2019CU8' = [PSCustomObject]@{ Name = 'Exchange 2019 CU8'; DomainVersion = 13239; ConfigurationVersion = 16756; SchemaVersion = 17002; Binding = '2019CU8' }
+	'2019CU9' = [PSCustomObject]@{ Name = 'Exchange 2019 CU9'; DomainVersion = 13240; ConfigurationVersion = 16757; SchemaVersion = 17002; Binding = '2019CU9' }
+	'2019CU10' = [PSCustomObject]@{ Name = 'Exchange 2019 CU10'; DomainVersion = 13241; ConfigurationVersion = 16758; SchemaVersion = 17003; Binding = '2019CU10' }
+	'2019CU11' = [PSCustomObject]@{ Name = 'Exchange 2019 CU11'; DomainVersion = 13242; ConfigurationVersion = 16759; SchemaVersion = 17003; Binding = '2019CU11' }
 }
