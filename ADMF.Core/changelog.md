@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.1.4 (2022-03-17)
+
+- Upd: New Exchange CU Version definitions
+
 ## 1.1.3 (2021-03-04)
 
 - New: Command Sync-AdcObject - Replicate a single item between DCs.
