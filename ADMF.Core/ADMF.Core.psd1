@@ -27,6 +27,8 @@
 	# this module
 	RequiredModules = @(
 		@{ ModuleName = 'PSFramework'; ModuleVersion = '1.4.150' }
+
+		# @{ ModuleName = 'ResolveString'; ModuleVersion = '1.0.0' }
 	)
 	
 	# Assemblies that must be loaded prior to importing this module
@@ -41,7 +43,9 @@
 	# Functions to export from this module
 	FunctionsToExport = @(
 		'Clear-AdcConfiguration'
+		'Compare-AdcProperty'
 		'Get-AdcExchangeVersion'
+		'New-AdcChange'
 		'Sync-AdcObject'
 	)
 	
