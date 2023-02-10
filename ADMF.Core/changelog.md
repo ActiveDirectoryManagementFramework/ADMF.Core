@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## ???
+## 1.1.6 (2023-02-10)
 
 - New: Command Compare-AdcProperty - Helper function simplifying the changes processing of Test-* commands.
 - New: Command New-AdcChange - Create a new change object.
