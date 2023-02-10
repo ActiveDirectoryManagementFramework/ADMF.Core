@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## 1.1.6 (2023-02-10)
+
+- New: Command Compare-AdcProperty - Helper function simplifying the changes processing of Test-* commands.
+- New: Command New-AdcChange - Create a new change object.
+
 ## 1.1.4 (2022-03-17)
 
 - Upd: New Exchange CU Version definitions
