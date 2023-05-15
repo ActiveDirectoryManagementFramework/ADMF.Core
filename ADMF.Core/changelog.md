@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## ???
+
+- New: Command Write-AdcChangeLog - Writes a log entry for change objects.
+- Upd: New-AdcChange - added `Data` parameter, to accept additional properties to include in the object.
+- Upd: New-AdcChange - added `ToString` parameter, to allow overriding default display styles.
+
 ## 1.1.6 (2023-02-10)
 
 - New: Command Compare-AdcProperty - Helper function simplifying the changes processing of Test-* commands.
