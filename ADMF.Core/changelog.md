@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## ???
+## 1.1.9 (2023-05-16)
 
 - New: Command Write-AdcChangeLog - Writes a log entry for change objects.
 - Upd: New-AdcChange - added `Data` parameter, to accept additional properties to include in the object.
