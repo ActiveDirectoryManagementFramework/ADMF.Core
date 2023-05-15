@@ -22,6 +22,15 @@
 	
 	.PARAMETER Type
 		The object/component type of the object being changed
+
+	.PARAMETER Data
+		Additional data to include in the change object.
+		Will ignore keys named "Property", "Old", "New" or "Identity"
+
+	.PARAMETER ToString
+		Scriptblock that determines, how the change is being displayed when a property itself.
+		Defaults to '<property> -> <newvalue>'
+		Use $this to refer to the object being displayed.
 	
 	.EXAMPLE
 		PS C:\> New-Change -Property Path -OldValue $adObject.DistinguishedName -NewValue $path -Identity $adObject -Type Object
@@ -43,15 +52,27 @@
 		$Identity,
 		
 		[string]
-		$Type = 'Unknown'
+		$Type = 'Unknown',
+
+		[hashtable]
+		$Data = @{ },
+
+		[scriptblock]
+		$ToString = { '{0} -> {1}' -f $this.Property, $this.New }
 	)
 
-	$change = [PSCustomObject]@{
-		PSTypeName = "DomainManagement.$Type.Change"
+	$changeHash = @{
+		PSTypeName = "ADMF.$Type.Change"
 		Property   = $Property
 		Old        = $OldValue
 		New        = $NewValue
 		Identity   = $Identity
 	}
-	Add-Member -InputObject $change -MemberType ScriptMethod -Name ToString -Value { '{0} -> {1}' -f $this.Property, $this.New } -Force -PassThru
+	foreach ($pair in $Data.GetEnumerator()) {
+		if ($pair.Key -in $changeHash.Keys) { continue }
+		$changeHash[$pair.Key] = $pair.Value
+	}
+
+	$change = [PSCustomObject]$changeHash
+	Add-Member -InputObject $change -MemberType ScriptMethod -Name ToString -Value $ToString -Force -PassThru
 }
