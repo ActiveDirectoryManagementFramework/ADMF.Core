@@ -24,6 +24,7 @@ $moduleRoot = Split-Path (Split-Path $PSScriptRoot)
 
 # Load Variables
 "$moduleRoot\internal\scripts\variables.ps1"
+"$moduleRoot\internal\scripts\variables_persistent.ps1"
 
 # Load Exchange Data
 "$moduleRoot\internal\scripts\exchange.ps1"
