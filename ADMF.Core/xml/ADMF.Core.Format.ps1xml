@@ -1,39 +1,74 @@
 ﻿<?xml version="1.0" encoding="utf-16"?>
 <Configuration>
-    <ViewDefinitions>
-        <!-- ADMF.Core.ExchangeVersion -->
-        <View>
-            <Name>ADMF.Core.ExchangeVersion</Name>
-            <ViewSelectedBy>
-                <TypeName>ADMF.Core.ExchangeVersion</TypeName>
-            </ViewSelectedBy>
-            <TableControl>
-                <AutoSize/>
-                <TableHeaders>
-                    <TableColumnHeader/>
-                    <TableColumnHeader/>
-                    <TableColumnHeader/>
-                    <TableColumnHeader/>
-                </TableHeaders>
-                <TableRowEntries>
-                    <TableRowEntry>
-                        <TableColumnItems>
-                            <TableColumnItem>
-                                <PropertyName>Name</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>DomainVersion</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>ConfigurationVersion</PropertyName>
-                            </TableColumnItem>
-                            <TableColumnItem>
-                                <PropertyName>SchemaVersion</PropertyName>
-                            </TableColumnItem>
-                        </TableColumnItems>
-                    </TableRowEntry>
-                </TableRowEntries>
-            </TableControl>
-        </View>
-    </ViewDefinitions>
+	<ViewDefinitions>
+		<!-- ADMF.Core.ExchangeVersion -->
+		<View>
+			<Name>ADMF.Core.ExchangeVersion</Name>
+			<ViewSelectedBy>
+				<TypeName>ADMF.Core.ExchangeVersion</TypeName>
+			</ViewSelectedBy>
+			<TableControl>
+				<AutoSize />
+				<TableHeaders>
+					<TableColumnHeader />
+					<TableColumnHeader />
+					<TableColumnHeader />
+					<TableColumnHeader />
+				</TableHeaders>
+				<TableRowEntries>
+					<TableRowEntry>
+						<TableColumnItems>
+							<TableColumnItem>
+								<PropertyName>Name</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>DomainVersion</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>ConfigurationVersion</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>SchemaVersion</PropertyName>
+							</TableColumnItem>
+						</TableColumnItems>
+					</TableRowEntry>
+				</TableRowEntries>
+			</TableControl>
+		</View>
+
+		<!-- ADMF.Core.RemotingConfig -->
+		<View>
+			<Name>ADMF.Core.RemotingConfig</Name>
+			<ViewSelectedBy>
+				<TypeName>ADMF.Core.RemotingConfig</TypeName>
+			</ViewSelectedBy>
+			<TableControl>
+				<AutoSize />
+				<TableHeaders>
+					<TableColumnHeader />
+					<TableColumnHeader />
+					<TableColumnHeader />
+					<TableColumnHeader />
+				</TableHeaders>
+				<TableRowEntries>
+					<TableRowEntry>
+						<TableColumnItems>
+							<TableColumnItem>
+								<PropertyName>Target</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>HasOptions</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>UseSSH</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>Parameters</PropertyName>
+							</TableColumnItem>
+						</TableColumnItems>
+					</TableRowEntry>
+				</TableRowEntries>
+			</TableControl>
+		</View>
+	</ViewDefinitions>
 </Configuration>

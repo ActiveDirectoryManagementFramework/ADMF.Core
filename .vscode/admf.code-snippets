@@ -1,0 +1,14 @@
+{
+	"Help_ServerCredential": {
+		"scope": "powershell",
+		"prefix": "helpsc",
+		"body": [
+			".PARAMETER Server",
+			"\tThe server / domain to work with.",
+			"",
+			".PARAMETER Credential",
+			"\tThe credentials to use for this operation."
+		],
+		"description": "[ADMF] Default help for server & credentials"
+	}
+}

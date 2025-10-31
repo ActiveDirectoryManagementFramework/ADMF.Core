@@ -1,6 +1,5 @@
 ﻿
 # ignore the settings folder and files for VSCode and PSS
-.vscode/*
 *.psproj
 *TempPoint*
 
