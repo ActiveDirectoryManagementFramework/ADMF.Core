@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## 1.2.12 (2025-10-31)
+
+- New: Remoting config handling, to allow specifying the settings used during invocation.
+
 ## 1.1.9 (2023-05-16)
 
 - New: Command Write-AdcChangeLog - Writes a log entry for change objects.

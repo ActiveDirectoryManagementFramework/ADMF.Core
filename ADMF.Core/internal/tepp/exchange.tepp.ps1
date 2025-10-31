@@ -7,4 +7,4 @@ Register-PSFTeppScriptblock -Name 'ADMF.Core.ExchangeVersion' -ScriptBlock {
 	& (Get-Module ADMF.Core) {
 		$script:exchangeVersionMapping.Keys
 	}
-}
+} -Global

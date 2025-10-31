@@ -1,32 +1,32 @@
 ﻿@{
 	# Script module or binary module file associated with this manifest
-	RootModule = 'ADMF.Core.psm1'
+	RootModule        = 'ADMF.Core.psm1'
 	
 	# Version number of this module.
-	ModuleVersion = '1.1.9'
+	ModuleVersion     = '1.1.9'
 	
 	# ID used to uniquely identify this module
-	GUID = '11e2d894-33d7-4020-a65e-f13c2f1893aa'
+	GUID              = '11e2d894-33d7-4020-a65e-f13c2f1893aa'
 	
 	# Author of this module
-	Author = 'Friedrich Weinmann'
+	Author            = 'Friedrich Weinmann'
 	
 	# Company or vendor of this module
-	CompanyName = 'Microsoft'
+	CompanyName       = 'Microsoft'
 	
 	# Copyright statement for this module
-	Copyright = 'Copyright (c) 2020 Friedrich Weinmann'
+	Copyright         = 'Copyright (c) 2020 Friedrich Weinmann'
 	
 	# Description of the functionality provided by this module
-	Description = 'Central Tooling used across available across all ADMF Project modules'
+	Description       = 'Central Tooling used across available across all ADMF Project modules'
 	
 	# Minimum version of the Windows PowerShell engine required by this module
 	PowerShellVersion = '5.0'
 	
 	# Modules that must be imported into the global environment prior to importing
 	# this module
-	RequiredModules = @(
-		@{ ModuleName = 'PSFramework'; ModuleVersion = '1.7.270' }
+	RequiredModules   = @(
+		@{ ModuleName = 'PSFramework'; ModuleVersion = '1.13.416' }
 
 		# @{ ModuleName = 'ResolveString'; ModuleVersion = '1.0.0' }
 	)
@@ -38,14 +38,18 @@
 	# TypesToProcess = @('xml\ADMF.Core.Types.ps1xml')
 	
 	# Format files (.ps1xml) to be loaded when importing this module
-	FormatsToProcess = @('xml\ADMF.Core.Format.ps1xml')
+	FormatsToProcess  = @('xml\ADMF.Core.Format.ps1xml')
 	
 	# Functions to export from this module
 	FunctionsToExport = @(
 		'Clear-AdcConfiguration'
 		'Compare-AdcProperty'
 		'Get-AdcExchangeVersion'
+		'Get-AdcRemotingConfig'
 		'New-AdcChange'
+		'New-AdcPSSession'
+		'Remove-AdcRemotingConfig'
+		'Set-AdcRemotingConfig'
 		'Sync-AdcObject'
 		'Write-AdcChangeLog'
 	)
@@ -66,19 +70,19 @@
 	# FileList = @()
 	
 	# Private data to pass to the module specified in ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
-	PrivateData = @{
+	PrivateData       = @{
 		
 		#Support for PowerShellGet galleries.
 		PSData = @{
 			
 			# Tags applied to this module. These help with module discovery in online galleries.
-			Tags = @('activedirectory', 'configuration', 'admf', 'management')
+			Tags         = @('activedirectory', 'configuration', 'admf', 'management')
 			
 			# A URL to the license for this module.
-			LicenseUri = 'https://github.com/ActiveDirectoryManagementFramework/ADMF.Core/blob/master/LICENSE'
+			LicenseUri   = 'https://github.com/ActiveDirectoryManagementFramework/ADMF.Core/blob/master/LICENSE'
 			
 			# A URL to the main website for this project.
-			ProjectUri = 'https://admf.one'
+			ProjectUri   = 'https://admf.one'
 			
 			# A URL to an icon representing this module.
 			# IconUri = ''
