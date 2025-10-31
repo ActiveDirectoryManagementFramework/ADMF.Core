@@ -19,6 +19,8 @@
 
 		Establish a session to dc1.contoso.com using the settings for either dc1.contoso.com or contoso.com
 	#>
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSPossibleIncorrectUsageOfAssignmentOperator", "")]
 	[CmdletBinding()]
 	param (
 		[PSFComputer]

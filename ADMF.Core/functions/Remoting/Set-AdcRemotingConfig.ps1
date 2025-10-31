@@ -58,6 +58,7 @@
 
 		Have all remoting connections to DC dc1.contoso.com use SSH.
 	#>
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
 	[CmdletBinding()]
 	param (
 		[Parameter(Mandatory = $true)]
