@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## ???
+
+- Upd: New-AdcPSSession - added `Server` alias for parameter `ComputerName`, to allow using the same connection hashtable for AD and PSRemoting commands.
+
 ## 1.2.12 (2025-10-31)
 
 - New: Remoting config handling, to allow specifying the settings used during invocation.
