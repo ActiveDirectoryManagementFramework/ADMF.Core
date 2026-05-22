@@ -29,5 +29,8 @@ $moduleRoot = Split-Path (Split-Path $PSScriptRoot)
 # Load Exchange Data
 "$moduleRoot\internal\scripts\exchange.ps1"
 
+# Load Default Privileged Group Sets
+"$moduleRoot\internal\scripts\privilegedGroupSets.ps1"
+
 # Load License
 "$moduleRoot\internal\scripts\license.ps1"

@@ -2,6 +2,8 @@
 
 ## ???
 
+- Upd: Compare-AdcAccessRule - moved over from DomainManagement and Compare-AccessRules
+- Upd: Get-AdcObjectDefaultPermission - moved over from DomainManagement and Get-DMObjectDefaultPermission
 - Upd: New-AdcPSSession - added `Server` alias for parameter `ComputerName`, to allow using the same connection hashtable for AD and PSRemoting commands.
 
 ## 1.2.12 (2025-10-31)

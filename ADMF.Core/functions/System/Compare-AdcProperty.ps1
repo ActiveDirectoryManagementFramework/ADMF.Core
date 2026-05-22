@@ -1,6 +1,5 @@
-﻿function Compare-AdcProperty
-{
-<#
+﻿function Compare-AdcProperty {
+	<#
 	.SYNOPSIS
 		Helper function simplifying the changes processing of Test-* commands.
 	
@@ -54,7 +53,7 @@
 #>
 	
 	[CmdletBinding()]
-	Param (
+	param (
 		[Parameter(Mandatory = $true)]
 		[string]
 		$Property,
@@ -97,21 +96,21 @@
 		$Type = 'Unknown'
 	)
 	
-	begin
-	{
+	begin {
 		if (-not $ADProperty) { $ADProperty = $Property }
 	}
-	process
-	{
+	process {
 		if ($IfExists -and $Configuration.PSObject.Properties.Name -notcontains $Property) { return }
 
 		$param = @{
 			Property = $Property
 			Identity = $ADObject.DistinguishedName
-			Type = $Type
+			Type     = $Type
 		}
 		$propValue = $Configuration.$Property
-		if ($Resolve) { $propValue = $propValue | Resolve-String @parameters }
+		if ($Resolve) {
+			$propValue = $propValue | Resolve-String # @parameters
+		}
 
 		if (($propValue -is [System.Collections.ICollection]) -and ($ADObject.$ADProperty -is [System.Collections.ICollection])) {
 			if (Compare-Object $propValue $ADObject.$ADProperty -CaseSensitive:$CaseSensitive) {

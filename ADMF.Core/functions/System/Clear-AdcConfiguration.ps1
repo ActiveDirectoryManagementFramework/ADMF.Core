@@ -1,6 +1,5 @@
-﻿function Clear-AdcConfiguration
-{
-<#
+﻿function Clear-AdcConfiguration {
+	<#
 	.SYNOPSIS
 		Resets all configuration settings part of ADMF processing.
 	
@@ -24,15 +23,15 @@
 		Resets all configuration settings part of ADMF processing.
 #>
 	[CmdletBinding()]
-	Param (
+	param (
 		[switch]
 		$EnableException
 	)
 	
-	process
-	{
+	process {
 		Invoke-PSFCallback -PSCmdlet $PSCmdlet -EnableException $EnableException
 		& "$script:ModuleRoot\internal\scripts\variables.ps1"
 		Clear-StringMapping
+		Clear-PrincipalCache
 	}
 }
