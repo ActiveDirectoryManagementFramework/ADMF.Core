@@ -138,6 +138,18 @@
 	}
 	#endregion Foreach non-default AD Rule: Check whether configured and delete if not so
 
+	#region Foreach present Default-AD-Rule, check whether there is a Present: False rule for it
+	foreach ($defaultRulePresent in $defaultRulesPresent) {
+		foreach ($configuredRule in $ConfiguredRules) {
+			if ('False' -ne $configuredRule.Present) { continue }
+
+			if (Test-AdcAccessRuleEquality -Parameters $parameters -Rule1 $defaultRulePresent -Rule2 $configuredRule) {
+				Write-Result -Type Delete -Identity $defaultRulePresent.IdentityReference -ADObject $defaultRulePresent -DistinguishedName $ADObject
+			}
+		}
+	}
+	#endregion Foreach present Default-AD-Rule, check whether there is a Present: False rule for it
+
 	#region Foreach configured rule: Check whether it exists as defined or make it so
 	:outer foreach ($configuredRule in $ConfiguredRules) {
 		if (-not (Test-Identity -Identity $configuredRule.IdentityReference -Parameters $parameters)) {
