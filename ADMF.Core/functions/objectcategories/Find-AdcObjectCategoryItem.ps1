@@ -62,7 +62,7 @@
 		
 		$searchBase = Resolve-String -Text $category.SearchBase # @parameters
 		if ($category.LdapFilter) {
-			$filter = '(&(objectClass={0})({1}))' -f $category.ObjectClass, (Resolve-String -Text $category.LdapFilter @parameters)
+			$filter = '(&(objectClass={0})({1}))' -f $category.ObjectClass, (Resolve-String -Text $category.LdapFilter <# @parameters #>)
 			if ($Property) { $parameters.Properties = $Property }
 			try { Get-ADObject @parameters -LDAPFilter $filter -SearchBase $searchBase -SearchScope $category.SearchScope -ErrorAction Stop }
 			catch {
