@@ -21,6 +21,10 @@
 	.PARAMETER ConvertGuidCommand
 		A steppable pipeline wrapping Convert-AdcSchemaGuid converting to guid.
 
+	.PARAMETER CategoryRules
+		All access rules defined via Object Categories.
+		These are compared against the list of ObjectCategories that apply to the object and then - if applicable - converted to access rules.
+
 	.PARAMETER ExplicitRules
 		Explicitly assigned rules by configuration via Path.
 		Path-based assignment overrides category-based assignment.
@@ -63,7 +67,7 @@
 			$inheritedObjectTypeName = $ConvertNameCommand.Process($ruleObject.InheritedObjectType)[0]
 
 			try { $identity = Resolve-AdcAceIdentity @parameters -IdentityReference $ruleObject.IdentityReference }
-			catch { Stop-PSFFunction -String 'Convert-AdcAccessRule.Identity.ResolutionError' -Target $ruleObject -ErrorRecord $_ -Continue }
+			catch { Stop-PSFFunction -String 'Get-AdcCategoryBasedRules.Identity.ResolutionError' -StringValues $ruleObject.IdentityReference, $resolvedCategory.Name -Target $ruleObject -ErrorRecord $_ -Continue }
 
 			$categoryRule = [PSCustomObject]@{
 				PSTypeName              = 'DomainManagement.AccessRule.Converted'
@@ -81,7 +85,7 @@
 				Present                 = $ruleObject.Present
 			}
 			# Path-based rules take precedence, when they attempt to do the exact same thing.
-			# Mostly so an explicit "Present = $false" can be applied to override a far-reaching category 
+			# Mostly so an explicit "Present = $false" can be applied to override a far-reaching category
 			foreach ($rule in $ExplicitRules) {
 				if (Test-AdcAccessRuleEquality -Rule1 $rule -Rule2 $categoryRule -Parameters $parameters) {
 					continue byRule

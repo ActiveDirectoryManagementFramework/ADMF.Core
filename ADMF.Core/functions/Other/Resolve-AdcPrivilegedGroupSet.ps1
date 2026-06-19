@@ -26,6 +26,8 @@
 		Resolves the DomainAdminsEx PGS for the forest containing contoso.com.
 		(The builtin DomainAdminsEx PGS resolves to all Domain Admins of all member Domains as well as the Enterprise Admins)
 	#>
+	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseDeclaredVarsMoreThanAssignments", "")]
+	[OutputType([hashtable])]
 	[CmdletBinding()]
 	param (
 		[Parameter(Mandatory = $true)]

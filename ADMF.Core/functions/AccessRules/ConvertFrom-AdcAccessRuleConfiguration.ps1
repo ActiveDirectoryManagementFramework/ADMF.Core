@@ -15,6 +15,9 @@
 
 	.PARAMETER IncludeCategory
 		Whether to also return all Object-Category-based rules that apply to the object.
+
+	.PARAMETER CategoryRules
+		Access rules defined via Object Categories
 	
 	.PARAMETER Server
 		The server / domain to work with.

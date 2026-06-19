@@ -10,7 +10,7 @@
 	.PARAMETER Identity
 		The Identity to resolve.
 	
-	.PARAMETER ADParameters
+	.PARAMETER Parameters
 		AD connection parameters.
 		Offer a hashtable containing server or credentials in any combination.
 	
@@ -19,6 +19,7 @@
 
 		Verifies whether the account with SamAccountName "Max.Mustermann" exists
 	#>
+	[OutputType([bool])]
 	[CmdletBinding()]
 	param (
 		[Parameter(Mandatory = $true)]

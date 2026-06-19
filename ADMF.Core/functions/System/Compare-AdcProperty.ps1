@@ -26,9 +26,6 @@
 		The property on the ad object to use for the comparison.
 		If this parameter is not specified, it uses the value from -Property.
 	
-	.PARAMETER Parameters
-		AD Parameters to pass through for Resolve-String.
-	
 	.PARAMETER AsString
 		Compare properties as string.
 		Will convert all $null values to "".
@@ -76,9 +73,6 @@
 
 		[string]
 		$ADProperty,
-		
-		[hashtable]
-		$Parameters = @{ },
 		
 		[switch]
 		$AsString,
