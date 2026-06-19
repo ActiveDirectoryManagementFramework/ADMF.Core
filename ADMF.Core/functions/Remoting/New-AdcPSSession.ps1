@@ -23,6 +23,7 @@
 	[Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSPossibleIncorrectUsageOfAssignmentOperator", "")]
 	[CmdletBinding()]
 	param (
+		[Alias('Server')]
 		[PSFComputer]
 		$ComputerName,
 

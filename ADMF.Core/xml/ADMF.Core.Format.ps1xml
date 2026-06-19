@@ -1,6 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-16"?>
 <Configuration>
 	<ViewDefinitions>
+		<!-- ADMF.Core.AccessRule.Change -->
+		<View>
+			<Name>ADMF.Core.AccessRule.Change</Name>
+			<ViewSelectedBy>
+				<TypeName>ADMF.Core.AccessRule.Change</TypeName>
+			</ViewSelectedBy>
+			<TableControl>
+				<AutoSize />
+				<TableHeaders>
+					<TableColumnHeader />
+					<TableColumnHeader />
+					<TableColumnHeader />
+					<TableColumnHeader>
+						<Width>80</Width>
+					</TableColumnHeader>
+					<TableColumnHeader />
+				</TableHeaders>
+				<TableRowEntries>
+					<TableRowEntry>
+						<TableColumnItems>
+							<TableColumnItem>
+								<PropertyName>Type</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>ACT</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>Identity</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>Rights</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>DistinguishedName</PropertyName>
+							</TableColumnItem>
+						</TableColumnItems>
+					</TableRowEntry>
+				</TableRowEntries>
+			</TableControl>
+		</View>
+
+		<!-- ADMF.Core.AccessRuleMode -->
+		<View>
+			<Name>ADMF.Core.AccessRuleMode</Name>
+			<ViewSelectedBy>
+				<TypeName>ADMF.Core.AccessRuleMode</TypeName>
+			</ViewSelectedBy>
+			<TableControl>
+				<AutoSize />
+				<TableHeaders>
+					<TableColumnHeader />
+					<TableColumnHeader />
+					<TableColumnHeader />
+					<TableColumnHeader>
+						<Label>Path / ObjectCategory</Label>
+					</TableColumnHeader>
+				</TableHeaders>
+				<TableRowEntries>
+					<TableRowEntry>
+						<TableColumnItems>
+							<TableColumnItem>
+								<PropertyName>Type</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>Mode</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<PropertyName>PathMode</PropertyName>
+							</TableColumnItem>
+							<TableColumnItem>
+								<ScriptBlock>
+
+									if ($_.Path) { $_.Path }
+									else { $_.ObjectCategory }
+
+								</ScriptBlock>
+							</TableColumnItem>
+						</TableColumnItems>
+					</TableRowEntry>
+				</TableRowEntries>
+			</TableControl>
+		</View>
+
 		<!-- ADMF.Core.ExchangeVersion -->
 		<View>
 			<Name>ADMF.Core.ExchangeVersion</Name>

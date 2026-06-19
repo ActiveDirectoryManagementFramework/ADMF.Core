@@ -1,5 +1,16 @@
 ﻿# Changelog
 
+## 1.4.20 (2026-06-19)
+
+- New: Tool: Privileged Group Set - support tool for ACL, allowing multiple acceptable owners for a resource
+- Upd: Component AccessRuleMode - moved over from DomainManagement
+- Upd: Component AccessRules - partially moved over from DomainManagement
+- Upd: Component DomainCredentials - moved over from DomainManagement
+- Upd: Component ObjectCategories - moved over from DomainManagement
+- Upd: Tools - moved over most of the Identity resolution tools from DomainManagement
+- Upd: Get-AdcObjectDefaultPermission - moved over from DomainManagement and Get-DMObjectDefaultPermission
+- Upd: New-AdcPSSession - added `Server` alias for parameter `ComputerName`, to allow using the same connection hashtable for AD and PSRemoting commands.
+
 ## 1.2.12 (2025-10-31)
 
 - New: Remoting config handling, to allow specifying the settings used during invocation.
