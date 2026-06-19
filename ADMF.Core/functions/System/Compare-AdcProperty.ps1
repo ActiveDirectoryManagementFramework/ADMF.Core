@@ -1,6 +1,5 @@
-﻿function Compare-AdcProperty
-{
-<#
+﻿function Compare-AdcProperty {
+	<#
 	.SYNOPSIS
 		Helper function simplifying the changes processing of Test-* commands.
 	
@@ -27,9 +26,6 @@
 		The property on the ad object to use for the comparison.
 		If this parameter is not specified, it uses the value from -Property.
 	
-	.PARAMETER Parameters
-		AD Parameters to pass through for Resolve-String.
-	
 	.PARAMETER AsString
 		Compare properties as string.
 		Will convert all $null values to "".
@@ -54,7 +50,7 @@
 #>
 	
 	[CmdletBinding()]
-	Param (
+	param (
 		[Parameter(Mandatory = $true)]
 		[string]
 		$Property,
@@ -78,9 +74,6 @@
 		[string]
 		$ADProperty,
 		
-		[hashtable]
-		$Parameters = @{ },
-		
 		[switch]
 		$AsString,
 
@@ -97,21 +90,21 @@
 		$Type = 'Unknown'
 	)
 	
-	begin
-	{
+	begin {
 		if (-not $ADProperty) { $ADProperty = $Property }
 	}
-	process
-	{
+	process {
 		if ($IfExists -and $Configuration.PSObject.Properties.Name -notcontains $Property) { return }
 
 		$param = @{
 			Property = $Property
 			Identity = $ADObject.DistinguishedName
-			Type = $Type
+			Type     = $Type
 		}
 		$propValue = $Configuration.$Property
-		if ($Resolve) { $propValue = $propValue | Resolve-String @parameters }
+		if ($Resolve) {
+			$propValue = $propValue | Resolve-String # @parameters
+		}
 
 		if (($propValue -is [System.Collections.ICollection]) -and ($ADObject.$ADProperty -is [System.Collections.ICollection])) {
 			if (Compare-Object $propValue $ADObject.$ADProperty -CaseSensitive:$CaseSensitive) {
