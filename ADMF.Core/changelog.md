@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## ???
+## 1.3.15 (2026-06-19)
 
 - Upd: Compare-AdcAccessRule - moved over from DomainManagement and Compare-AccessRules
 - Upd: Get-AdcObjectDefaultPermission - moved over from DomainManagement and Get-DMObjectDefaultPermission
