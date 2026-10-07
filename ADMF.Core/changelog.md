@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## ???
+
+- Fix: Compare-AdcAccessRuleIdentity - on PS5.1, failure to resolve an identity will lead to the use of the previous identity, rather than just using the SID that cannot be resolved
+
 ## 1.4.20 (2026-06-19)
 
 - New: Tool: Privileged Group Set - support tool for ACL, allowing multiple acceptable owners for a resource
