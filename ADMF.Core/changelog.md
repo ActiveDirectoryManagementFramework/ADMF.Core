@@ -1,6 +1,6 @@
 ﻿# Changelog
 
-## 1.4.22 (2026-10-09)
+## 1.4.23 (2026-10-09)
 
 - Fix: Access Rules - "NoFixConfig" option within AccessRules wasn't respected. (issue [#81](https://github.com/ActiveDirectoryManagementFramework/DomainManagement/issues/81) | Thanks @AndiBellstedt, harvested from PR [#82](https://github.com/ActiveDirectoryManagementFramework/DomainManagement/pull/82))
 - Fix: Convert-DMSchemaGuid - added alias to undo breaking change rename / migration of command
