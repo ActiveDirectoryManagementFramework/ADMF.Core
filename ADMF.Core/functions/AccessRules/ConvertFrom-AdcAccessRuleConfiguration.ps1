@@ -86,6 +86,7 @@
 				ObjectTypeName          = $objectTypeName
 				PropagationFlags        = $ruleObject.PropagationFlags
 				Present                 = $ruleObject.Present
+				NoFixConfig             = $ruleObject.NoFixConfig
 			}
 			$null = $explicitRules.Add($rule)
 			$rule
