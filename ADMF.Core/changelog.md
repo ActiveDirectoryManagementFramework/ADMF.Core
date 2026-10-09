@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## 1.4.23 (2026-10-09)
+
+- Fix: Access Rules - "NoFixConfig" option within AccessRules wasn't respected. (issue [#81](https://github.com/ActiveDirectoryManagementFramework/DomainManagement/issues/81) | Thanks @AndiBellstedt, harvested from PR [#82](https://github.com/ActiveDirectoryManagementFramework/DomainManagement/pull/82))
+- Fix: Convert-DMSchemaGuid - added alias to undo breaking change rename / migration of command
+- Fix: Compare-AdcAccessRuleIdentity - on PS5.1, failure to resolve an identity will lead to the use of the previous identity, rather than just using the SID that cannot be resolved
+
 ## 1.4.20 (2026-06-19)
 
 - New: Tool: Privileged Group Set - support tool for ACL, allowing multiple acceptable owners for a resource

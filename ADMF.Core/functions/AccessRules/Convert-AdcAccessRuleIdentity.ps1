@@ -50,7 +50,8 @@
 				Add-Member -InputObject $accessRule -MemberType NoteProperty -Name OriginalRule -Value $accessRule -PassThru
 				continue main
 			}
-			
+
+			$identity = $null
 			if (-not $accessRule.IdentityReference.AccountDomainSid) {
 				try { $identity = Get-AdcPrincipal @parameters -Sid $accessRule.IdentityReference -Domain $domainObject.DNSRoot -OutputType NTAccount -Target $Target }
 				catch {

@@ -3,7 +3,7 @@
 	RootModule        = 'ADMF.Core.psm1'
 	
 	# Version number of this module.
-	ModuleVersion     = '1.4.20'
+	ModuleVersion     = '1.4.23'
 	
 	# ID used to uniquely identify this module
 	GUID              = '11e2d894-33d7-4020-a65e-f13c2f1893aa'
@@ -26,9 +26,9 @@
 	# Modules that must be imported into the global environment prior to importing
 	# this module
 	RequiredModules   = @(
-		@{ ModuleName = 'PSFramework'; ModuleVersion = '1.13.416' }
+		@{ ModuleName = 'PSFramework'; ModuleVersion = '1.14.449' }
 
-		# @{ ModuleName = 'Principal'; ModuleVersion = '1.0.0' }
+		# @{ ModuleName = 'Principal'; ModuleVersion = '1.0.1' }
 		# @{ ModuleName = 'ResolveString'; ModuleVersion = '1.0.0' }
 	)
 	
@@ -102,6 +102,8 @@
 		'Unregister-DMObjectCategory'
 
 		'Register-DMBuiltInSID'
+
+		'Convert-DMSchemaGuid'
 	)
 	
 	# List of all modules packaged with this module
