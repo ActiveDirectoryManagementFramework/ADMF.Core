@@ -2,6 +2,7 @@
   push:
     branches:
       - master
+      - main
 
 jobs:
   build:
@@ -11,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install Prerequisites
-      run: .\build\vsts-prerequisites.ps1
+      run: .\build\psf-prerequisites.ps1
       shell: powershell
     - name: Validate
       run: .\build\vsts-validate.ps1
