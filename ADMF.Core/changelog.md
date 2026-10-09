@@ -1,7 +1,8 @@
 ﻿# Changelog
 
-## ???
+## 1.4.22 (2026-10-09)
 
+- Fix: Convert-DMSchemaGuid - added alias to undo breaking change rename / migration of command
 - Fix: Compare-AdcAccessRuleIdentity - on PS5.1, failure to resolve an identity will lead to the use of the previous identity, rather than just using the SID that cannot be resolved
 
 ## 1.4.20 (2026-06-19)

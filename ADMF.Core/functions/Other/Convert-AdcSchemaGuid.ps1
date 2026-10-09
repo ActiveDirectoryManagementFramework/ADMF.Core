@@ -28,6 +28,7 @@
 
 		Converts the right "Public-Information" into its guid representation (guid returned as a string type)
 	#>
+	[Alias('Convert-DMSchemaGuid')]
 	[CmdletBinding()]
 	param (
 		[Parameter(ValueFromPipeline = $true)]
